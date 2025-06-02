@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="professor.css">
+    <title>Lista de Professor</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <h1>Informações de Professor</h1>
+    </header>
+    <p id="teste"></p>
+    <button id="btn-limpar"><i data-lucide="circle-plus"></i></button>
+    
+
+    <table id="professorTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>              
+            </tr>
+        </thead>
+        <tbody id="professorTableDados">    
+        </tbody>
+    </table>
+
+    <!--modal-->
+    <div id="modal" >
+        <h3>Edite os dados do professor:</h3>
+        <label>ID: <input type="text" id="professor-id" readonly /> 
+        </label>
+        <br>
+        <label>Nome: <input type="text" id="professor-nome">       
+        </label>
+        <br>
+        <label>Cpf: <input type="text" id="professor-cpf">
+        </label>
+        <br>
+        <button id="btn-salvar">Salvar</button>
+        <button id="btn-excluir">Excluir</button>
+    </div>
+
+    <script src="professor.js"></script>
+</body>
+</html>

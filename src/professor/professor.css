@@ -1,0 +1,88 @@
+/* Fundo da página */
+body {
+    background: linear-gradient(120deg, #f0f4f8 0%, #c9e7fa 100%);
+    color: #222;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #1976d2;
+    color: #fff;
+    padding: 24px 0 16px 0;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}
+
+/* Botões */
+button, .btn {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 6px 4px 6px 0;
+    transition: background 0.2s;
+}
+
+button:hover, .btn:hover {
+    background-color: #1565c0;
+}
+
+/* Cartão principal */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.10);
+    padding: 28px 32px;
+    margin: 0 auto 32px auto;
+    max-width: 600px;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    background: #f9fbfc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 10px;
+    text-align: left;
+}
+
+th {
+    background: #1976d2;
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background: #e3f2fd;
+}
+
+tr:hover {
+    background: #bbdefb;
+    cursor: pointer;
+}
+/* ...existing code... */
+#modal {
+    /* Removido: position: fixed; left: 50%; bottom: 0; transform: translateX(-50%); z-index: 1000; */
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 24px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: block;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin: 32px auto 0 auto; /* Centraliza e dá espaço acima */
+}
