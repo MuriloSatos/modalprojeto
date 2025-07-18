@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="venda.css">
+    <title>Lista de Vendas</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Informações das Vendas</h1>
+    </header>
+    <p id="teste"></p>
+    <button id="btn-limpar"><i data-lucide="pen-off"></i></button>
+ 
+
+    <table id="vendaTable">
+        <thead>
+            <tr>
+
+                <th>Codigo do Produto</th>
+                <th>Data da Venda</th>
+                <th>Codigo da Venda</th>
+                <th>Quantidade de Peças </th>
+                <th>Valor Total</th>
+                <th>Status da Venda</th>
+                <th>Id do CLiente</th>
+            </tr>
+        </thead>
+        <tbody id="VendaTableDados">
+        </tbody>
+    </table>
+
+    <!--modal-->
+    <div id="modal">
+        <h3>Edite os dados da Venda:</h3>
+        <label for="codP">Codigo Produto:</label>
+        <select id="campoDropProduto" name="codP"></select>
+        <br>
+        <label>Data da Venda: <input type="date" id="data-venda">
+        </label>
+        <br>
+        <label>Codigo da Venda: <input type="text" id="codigo-venda">
+        </label>
+        <br>
+        <label>Quantidade de Peças: <input type="text" id="quantidade-peca">
+        </label>
+        <br>
+        <label>Valor Total: <input type="text" id="valor-total">
+        </label>
+        <br>
+        <label>Status da Venda : <input type="text" id="status-venda">
+        </label>
+        <br>
+        <label for="codC">Cliente:</label>
+        <select id="campoDropCliente" name="codC"></select>
+        <br>
+        <br>
+        <button id="btn-salvar">Salvar</button>
+        <button id="btn-excluir">Excluir</button>
+    </div>
+
+    <script src="venda.js"></script>
+</body>
+
+</html>

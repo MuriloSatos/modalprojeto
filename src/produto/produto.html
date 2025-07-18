@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="produto.css">
+    <title>Lista de Produtos</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <h1>Informações de Produtos</h1>
+    </header>
+    <p id="Mostrar"></p>
+    <button id="btn-limpar"><i data-lucide="pen-off"></i></button>
+    <div style="display: flex; justify-content: flex-start; margin: 30px 10px 20px 40px;">
+        <input type="text" id="busca-dev" placeholder="Pesquisar dev..." style="padding: 12px 20px; border-radius: 8px; width: 400px; border: 1px solid #ccc; font-size: 1rem;">
+    </div>
+    <button id ="btn-buscar"><i data-lucide="search"></i></button>
+    
+
+    <table id="ProdutoTable">
+        <thead>
+            <tr>
+    
+                <th>Nome do Produto</th>
+                <th>tipo do Produto</th>
+                <th>Preço</th>  
+                <th>tamanho do Produto</th>
+                <th>marca do Produto</th>
+                <th>codigo do Produto</th>
+                <th>id</th>
+                <th>Botão</th>
+                        
+            </tr>
+        </thead>
+        <tbody id="ProdutoTableDados">    
+        </tbody>
+    </table>
+
+    <!--modal-->
+<!-- container do modal -->
+<!-- Modal posicionado abaixo da tabela -->
+<div id="modal">
+    <h3>Edite os dados do produto:</h3>
+    <label>codigo do Produto: <input type="text" id="codigo-produto"> </label><br>
+    <label>Nome do Produto: <input type="text" id="nome-produto"> </label><br>
+    <label>tipo do Produto: <input type="text" id="tipo-produto"> </label><br>
+    <label>Preço: <input type="text" id="preco-produto"> </label><br>
+    <label>tamanho do Produto: <input type="text" id="tamanho-produto"> </label><br>
+    <label>marca do Produto: <input type="text" id="marca-produto"> </label><br>
+    <label>id: <input type="text" id="id-produto"> </label><br>
+    <button id="btn-salvar">Salvar</button>
+    <button id="btn-excluir">Excluir</button>
+</div>
+
+
+
+    <script src="produto.js"></script>
+</body>
+</html>

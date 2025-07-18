@@ -1,136 +1,119 @@
-const { contextBridge, ipcRenderer } = require('electron')
+const {contextBridge,ipcRenderer} = require('electron')
 
-function buscarAlunos() {
-    return ipcRenderer.invoke('buscar-alunos');
+
+function buscarCliente(){
+    return ipcRenderer.invoke('buscar-cliente')
 }
 
-function excluirAlunos(pID){
-    
-    return ipcRenderer.invoke('deletar-alunos',pID);
+function excluirCliente(id){
+    return ipcRenderer.invoke('deletar-cliente',id)
 }
 
-function atualizarAlunos(pID, pNome, pMatricula){
-    
-    return ipcRenderer.invoke('atualizar-alunos',pID,pNome,pMatricula);
+function atualizarCliente(id,nome,senha,email){
+    return ipcRenderer.invoke('atualizar-cliente',id,nome,senha,email)
 }
 
-function adicionarAlunos( pNome, pMatricula){
-    
-    return ipcRenderer.invoke('adicionar-alunos',pNome,pMatricula);
+function adicionarCliente(nome,senha,email,cpf){
+    return ipcRenderer.invoke('adicionar-cliente',nome,senha,email,cpf)
+}
+function somar2numeros(num1,num2){
+    return ipcRenderer.invoke('somar-2-numeros',num1,num2)
+}
+function buscarProduto(){
+    return ipcRenderer.invoke('buscar-produto')
+}
+function excluirProduto(id){
+    return ipcRenderer.invoke('deletar-produto',id)
+} 
+function atualizarProduto(id,nomeproduto,tipoproduto,preco,tamanhoproduto,marcaproduto,codigoproduto){
+    return ipcRenderer.invoke('atualizar-produto',id,nomeproduto,tipoproduto,preco,tamanhoproduto,marcaproduto,codigoproduto)
+}
+function adicionarProduto(nomeproduto,tipoproduto,preco,tamanhoproduto,marcaproduto,codigoproduto){
+    return ipcRenderer.invoke('adicionar-produto',nomeproduto,tipoproduto,preco,tamanhoproduto,marcaproduto,codigoproduto)
 }
 
-
-
-function buscarProfessor() {
-    return ipcRenderer.invoke('buscar-professor');
+function buscarVenda(){
+    return ipcRenderer.invoke('buscar-venda')
 }
-
-function excluirProfessor(pID){
-    
-    return ipcRenderer.invoke('deletar-professor',pID);
+function excluirVenda(codigovenda){
+    return ipcRenderer.invoke('deletar-venda',codigovenda)
 }
-
-function atualizarProfessor(pID, pNome, cpf){
-    
-    return ipcRenderer.invoke('atualizar-professor',pID,pNome,cpf);
+function atualizarVenda(codigovendas,datavenda,codigoproduto,pecaquantidade,valortotal,statusvenda,idcliente){
+    return ipcRenderer.invoke('atualizar-venda',codigovendas,datavenda,codigoproduto,pecaquantidade,valortotal,statusvenda,idcliente)
 }
-function adicionarProfessor( pNome, cpf){
-    
-    return ipcRenderer.invoke('adicionar-professor',pNome,cpf);
-}
+function adicionarVenda(codigovendas,datavenda,codigoproduto,pecaquantidade,valortotal,statusvenda,idcliente){
+    return ipcRenderer.invoke('adicionar-venda',codigovendas,datavenda,codigoproduto,pecaquantidade,valortotal,statusvenda,idcliente)
 
-
-
-function buscarCurso() {
-    return ipcRenderer.invoke('buscar-curso');
-}
-function excluirCurso(pID){
-    
-    return ipcRenderer.invoke('deletar-curso',pID);
-}  
-function atualizarCurso(pID, pNome, descricao){
-    return ipcRenderer.invoke('atualizar-curso',pID,pNome,descricao);
-}
-function adicionarCurso( pNome, descricao){ 
-    return ipcRenderer.invoke('adicionar-curso',pNome,descricao);
 }
 
 
 
 
-function buscarMateria() {
-   return ipcRenderer.invoke('buscar-materia');
+function buscarProdutoNome(nomeproduto){
+    return ipcRenderer.invoke('buscar-produto-nome',nomeproduto)
 }
 
-function excluirMateria(pID) {
-    return ipcRenderer.invoke('deletar-materia', pID);
+function buscarClienteDevs(email){
+    return ipcRenderer.invoke('buscar-cliente-devs',email)
+}
+ function buscarVendaId(idcliente){
+    return ipcRenderer.invoke('buscar-venda-id',idcliente)
 }
 
-function atualizarMateria(pID, pNome, descricao, idcurso) {
-    return ipcRenderer.invoke('atualizar-materia', pID, pNome, descricao, idcurso);
-}
-
-function adicionarMateria(pNome, descricao, idcurso) {
-    return ipcRenderer.invoke('adicionar-materia', pNome, descricao, idcurso);
-}
-
-
-
-
-contextBridge.exposeInMainWorld('senacAPI',
-
+contextBridge.exposeInMainWorld('todosAPI',
     {
-        buscarAlunos: buscarAlunos,
-        excluirAlunos: excluirAlunos,
-        atualizarAlunos: atualizarAlunos,
-        adicionarAlunos: adicionarAlunos,
+        buscarCliente,
+        excluirCliente,
+        atualizarCliente,
+        adicionarCliente,
+        somar2numeros,
 
-        buscarProfessor: buscarProfessor,
-        excluirProfessor: excluirProfessor,
-        atualizarProfessor: atualizarProfessor,
-        adicionarProfessor: adicionarProfessor,
+        buscarProduto,
+        excluirProduto,
+        atualizarProduto,
+        adicionarProduto,
 
-        buscarCurso: buscarCurso,
-        excluirCurso: excluirCurso,
-        atualizarCurso: atualizarCurso,
-        adicionarCurso: adicionarCurso,
+        buscarVenda,
+        excluirVenda,
+        atualizarVenda,
+        adicionarVenda,
 
-        buscarMateria: buscarMateria,
-        excluirMateria: excluirMateria,
-        atualizarMateria: atualizarMateria,
-        adicionarMateria: adicionarMateria
+        buscarProdutoNome,
+        buscarClienteDevs,
+        buscarVendaId,
 
+        validarLogin
     }
-
-
 )
-
-
-function abrirAluno() {
-    ipcRenderer.send('abrir-aluno');
+function validarLogin(nome,senha){
+    return ipcRenderer.invoke('validar-login',nome,senha)
 }
 
 
-function abrirProfessor() {
-    ipcRenderer.send('abrir-professor');
-
+function abrirJanelaPrincipal(){
+    ipcRenderer.send('abrir-menu')
 }
-function abrirCurso() {
-    ipcRenderer.send('abrir-curso');
-}
-
-function abrirMateria() {
-    ipcRenderer.send('abrir-materia');
+function abrirMenuCliente(){
+    ipcRenderer.send('abrir-menu-cliente')
 }
 
+function abrirCliente(){
+    ipcRenderer.send('abrir-cliente')
+}
+function abrirProduto(){
+    ipcRenderer.send('abrir-produto')
+}
+function abrirVenda(){
+    ipcRenderer.send('abrir-venda')
+}
 
 contextBridge.exposeInMainWorld('janelaAPI',
-    {
-        abrirAluno: abrirAluno,
-        abrirProfessor: abrirProfessor,
-        abrirCurso: abrirCurso,
-        abrirMateria: abrirMateria
+   { 
+    abrirCliente,
+    abrirProduto,
+    abrirJanelaPrincipal,
+    abrirMenuCliente,
+    abrirVenda
 
-    }
-
+   }
 )

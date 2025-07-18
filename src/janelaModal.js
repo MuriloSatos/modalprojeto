@@ -24,46 +24,37 @@ function criarJanelaModal(telaPai,arquivohtml) {
 
 
 
-function modalAbrirProfessor(event) {
+function modalAbrirCliente(event) {
     let mainWindow = getJanelaPrincipal(); // Obtém a janela principal existente
     if (mainWindow) {
-        criarJanelaModal(mainWindow, './src/professor/professor.html');
+        criarJanelaModal(mainWindow, './src/cliente/cliente.html');
     } else {
         console.warn('Não foi possível abrir a modal: Janela principal não encontrada.');
     }
 }
 
+function modalAbrirProduto(event) {
+    let mainWindow = getJanelaPrincipal(); // Obtém a janela principal existente
+    if (mainWindow) {
+        criarJanelaModal(mainWindow, './src/produto/produto.html');
+    } else {
+        console.warn('Não foi possível abrir a modal: Janela principal não encontrada.');
+    }
+}
+ function modalAbrirVenda(event) {
+    let mainWindow = getJanelaPrincipal();
+    if (mainWindow) {
+        criarJanelaModal(mainWindow, './src/vendas/venda.html');
+    } else {
+        console.warn('Não foi possível abrir a modal: Janela principal não encontrada.');
+    }
 
-function modalAbrirAluno(event) {
-    let mainWindow = getJanelaPrincipal(); // Obtém a janela principal existente
-    if (mainWindow) {
-        criarJanelaModal(mainWindow, './src/aluno/aluno.html');
-    } else {
-        console.warn('Não foi possível abrir a modal: Janela principal não encontrada.');
-    }
-}
-
-function modalAbrirCurso(event) {
-    let mainWindow = getJanelaPrincipal(); // Obtém a janela principal existente
-    if (mainWindow) {
-        criarJanelaModal(mainWindow, './src/curso/curso.html');
-    } else {
-        console.warn('Não foi possível abrir a modal: Janela principal não encontrada.');
-    }
-}
-function modalAbrirMateria(event) {
-    let mainWindow = getJanelaPrincipal(); // Obtém a janela principal existente
-    if (mainWindow) {
-        criarJanelaModal(mainWindow, './src/materias/materia.html');
-    } else {
-        console.warn('Não foi possível abrir a modal: Janela principal não encontrada.');
-    }
-}
+ }
 
 module.exports = {
     criarJanelaModal,
-    modalAbrirProfessor,
-    modalAbrirAluno,
-    modalAbrirCurso,
-    modalAbrirMateria
+    modalAbrirCliente,
+    modalAbrirProduto,
+    modalAbrirVenda
+
 };

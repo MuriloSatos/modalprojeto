@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cliente.css">
+    <title>Lista de Cliente</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <h1>Informações de Cliente</h1>
+    </header>
+    <p id="teste"></p>
+    <div style="display: flex; justify-content: flex-start; margin: 30px 10px 20px 40px;">
+    <input type="text" id="busca-dev" placeholder="Pesquisar dev..." style="padding: 12px 20px; border-radius: 8px; width: 400px; border: 1px solid #ccc; font-size: 1rem;">
+</div>
+<button id="btn-buscar"><i data-lucide="search"></i></button>
+<button id="btn-limpar"><i data-lucide="pen-off"></i></button>
+
+
+    <table id="clienteTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>senha</th>
+                <th>cpf</th>
+                <th>email</th>  
+                <th>id</th>
+                <th>Botão</th>      
+            </tr>
+        </thead>
+        <tbody id="clienteTableDados">    
+        </tbody>
+    </table>
+
+    <!--modal-->
+
+<div id="modal">
+    <h3>Edite os dados do cliente:</h3>
+    <label>nome: <input type="text" id="cliente-nome"></label><br>
+    <label>senha: <input type="text" id="cliente-senha"></label><br>
+    <label>cpf: <input type="text" id="cliente-cpf"></label><br>
+    <label>email: <input type="text" id="cliente-email"></label><br>
+    <label>id: <input type="text" id="cliente-id" readonly /></label><br>
+    <button id="btn-salvar">Salvar</button>
+    <button id="btn-excluir">Excluir</button>
+</div>
+
+
+    <script src="cliente.js"></script>
+</body>
+</html>

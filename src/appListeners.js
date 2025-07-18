@@ -1,89 +1,97 @@
-
-const { ipcMain } = require('electron');
-
-
-const {
-    buscarProfessor,
-    deletarProfessor,
-    atualizarProfessor,
-    adicionarProfessor
-} = require('./professor/professorDb');
+const { ipcMain } = require('electron')
 
 
-const {
-    buscarAlunos,
-    deletarAluno,
-    atualizarAluno,
-    adicionarAluno
-} = require ('./aluno/alunoDb')
+const { validarLogin
+} = require('./login/loginDb')
+
+
+function registrarLoginHandler() {
+    ipcMain.handle('validar-login', validarLogin);
+}
+
+
 
 const {
-    buscarCurso,
-    deletarCurso,
-    atualizarCurso,
-    adicionarCurso
-} = require('./curso/cursoDb');
+    buscarcliente,
+    deletarCliente,
+    atualizarCliente,
+    adicionarCliente,
+    buscarClienteDevs,
+    somar2numeros
+} = require('./cliente/clienteDb')
 
 const {
-    buscarMateria,
-    deletarMateria,
-    atualizarMateria,
-    adicionarMateria
-} = require('./materias/materiaDb');
+    buscarProduto,
+    deletarProduto,
+    atualizarProduto,
+    adicionarProduto,
+    buscarProdutoNome
+} = require('./produto/produtoDb')
 
-const { 
-    modalAbrirProfessor,
-    modalAbrirAluno,
-    modalAbrirCurso,
-    modalAbrirMateria
+const {
+    buscarVenda,
+    buscarVendaNome,
+    deletarVenda,
+    atualizarVenda,
+    adicionarVenda,
+    buscarVendaId
+} = require('./vendas/vendaDb');
+
+const {
+    modalAbrirCliente,
+    modalAbrirProduto,
+    modalAbrirVenda
 } = require('./janelaModal');
 
-function registrarProfessorHandler() {
-    ipcMain.handle('buscar-professor', buscarProfessor);
-    ipcMain.handle('deletar-professor', deletarProfessor);
-    ipcMain.handle('atualizar-professor', atualizarProfessor);
-    ipcMain.handle('adicionar-professor', adicionarProfessor);
+
+const { createMainWindow } = require('./janelaPrincipal');
+const { createMainWindowCliente } = require('./janelaPrincipal');
+
+
+function registrarCliente() {
+    ipcMain.handle('buscar-cliente', buscarcliente);
+    ipcMain.handle('deletar-cliente', deletarCliente);
+    ipcMain.handle('atualizar-cliente', atualizarCliente);
+    ipcMain.handle('adicionar-cliente', adicionarCliente);
+    ipcMain.handle('buscar-cliente-devs', buscarClienteDevs);
+    ipcMain.handle('somar-2-numeros', somar2numeros);
 }
 
-
-function registrarAlunoHandler() {
-    ipcMain.handle('buscar-alunos', buscarAlunos);
-    ipcMain.handle('deletar-alunos', deletarAluno);
-    ipcMain.handle('atualizar-alunos', atualizarAluno);
-    ipcMain.handle('adicionar-alunos', adicionarAluno);
+function registrarProduto() {
+    ipcMain.handle('buscar-produto', buscarProduto);
+    ipcMain.handle('deletar-produto', deletarProduto);
+    ipcMain.handle('atualizar-produto', atualizarProduto);
+    ipcMain.handle('adicionar-produto', adicionarProduto);
+    ipcMain.handle('buscar-produto-nome', buscarProdutoNome);
 }
 
-function registrarCursoHandler() {
-    ipcMain.handle('buscar-curso', buscarCurso);
-    ipcMain.handle('deletar-curso', deletarCurso);
-    ipcMain.handle('atualizar-curso', atualizarCurso);
-    ipcMain.handle('adicionar-curso', adicionarCurso);
+function registrarVenda() {
+    ipcMain.handle('buscar-venda', buscarVenda);
+    ipcMain.handle('buscar-venda-id', buscarVendaId);
+    ipcMain.handle('deletar-venda', deletarVenda);
+    ipcMain.handle('atualizar-venda', atualizarVenda);
+    ipcMain.handle('adicionar-venda', adicionarVenda);
+
 }
 
-function registrarMateriaHandler(){
-    ipcMain.handle('buscar-materia', buscarMateria);
-    ipcMain.handle('deletar-materia', deletarMateria);
-    ipcMain.handle('atualizar-materia', atualizarMateria);
-    ipcMain.handle('adicionar-materia', adicionarMateria);
+function registrarJanelas() {
+    ipcMain.on('abrir-cliente', modalAbrirCliente),
+        ipcMain.on('abrir-produto', modalAbrirProduto),
+        ipcMain.on('abrir-venda', modalAbrirVenda),
+        ipcMain.on('abrir-menu', createMainWindow)
+    ipcMain.on('abrir-menu-cliente', createMainWindowCliente)
+
 }
 
-
-
-function registrarJanelas(){
-    ipcMain.on('abrir-professor',modalAbrirProfessor);
-    ipcMain.on('abrir-aluno',modalAbrirAluno);
-    ipcMain.on('abrir-curso',modalAbrirCurso);
-    ipcMain.on('abrir-materia', modalAbrirMateria);
-}
-
-function registrarTodos(){
-    registrarProfessorHandler();
-    registrarAlunoHandler();
+function registrarTodos() {
+    registrarCliente();
     registrarJanelas();
-    registrarCursoHandler();
-    registrarMateriaHandler();
+    registrarProduto();
+    registrarLoginHandler();
+    registrarVenda();
+    
 }
-
 module.exports = {
     registrarTodos
-};
+
+}
